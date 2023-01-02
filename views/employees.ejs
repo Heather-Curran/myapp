@@ -1,0 +1,29 @@
+<table>
+    <tr>
+        <th>EID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Salary</th>
+        <th>Update</th>
+    </tr>
+    <!--for loop over the data pulled from mongo DB-->
+    <% emps.forEach((employee)=>{ %>
+        <tr>
+            <td>
+                <%= employee.eid %>
+            </td>
+            <td>
+                <%= employee.ename %>
+            </td>
+            <td>
+                <%= employee.role %>
+            </td>
+            <td>
+                <%= employee.salary %>
+            </td>
+            <td>
+                <a href="">Update</a>
+            </td>
+        </tr>
+    <% }) %>
+</table>

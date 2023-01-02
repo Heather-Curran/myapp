@@ -1,0 +1,23 @@
+<!--Early attempt at passing data back to the server from the client-->
+<h1>Edit Employee <%= emp._id %></h1>
+    <% emp.forEach((employee)=>{ %>
+    <label>EID</label>
+    <input readonly id="id" value=<%= employee._id%> >
+    <label>Phone</label>
+    <input id="phone" value=<%= employee.phone %> >
+    <label>Email</label>
+    <input id="email" value=<%= employee.email %> >
+    <input type="submit" value="Submit" onclick="DoSomething()"/>
+    <% }) %>
+    <!--the intention of the script below was to grab the values from the page and append them to the url
+        in order to read the values as variables from the url string in a get and post request, this did not end up working -->
+<script>
+    function DoSomething(){
+        var id = document.getElementById("id").getAttribute("value")
+        var phone = document.getElementById("phone").getAttribute("value");
+        var email = document.getElementById("email").getAttribute("value");
+
+        console.log("id : "+id+"\nphone : " + phone + "\nemail : " + email);
+        location.href="/employeesMongo/"+id+"/"+phone+"/"+email
+    }
+</script>

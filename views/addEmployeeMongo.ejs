@@ -1,0 +1,35 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!--the script below is a jQuery scrip for grabbing the values from the page based on their id
+    and sending this data back to the post method in index.js. The values would not 
+    pass back and kept appearing as undefined in the console output in the post script-->
+<script>
+    $(document).ready(function(){
+        var id,phone,email;
+        $("#submit").click(function(){
+            id = $("#id").val();
+            phone = $("#phone").val();
+            email = $("#email").val();
+            $.post("http://localhost:3004/employeesMongo/addEmployeeMongo",{_id:id,_phone:phone,_email:email},function(data){
+                console.log("data sucessful post")
+            })
+        })
+    })
+</script>
+<h1>Add Employee (MongoDb)</h1>
+<table>
+    <tr>
+        <label>EID</label>
+        <input id="id">
+    </tr>
+    <tr>
+        <label>Phone</label>
+        <input id="phone" >
+    </tr>
+    <tr>
+        <label>Email</label>
+        <input id="email">
+    </tr>
+    <tr>
+        <input id="submit" type="submit" value="Submit"/>
+    </tr>
+</table>

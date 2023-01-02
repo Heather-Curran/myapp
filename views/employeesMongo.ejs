@@ -1,0 +1,29 @@
+<script>
+
+</script>
+<a href="/employeesMongo/addEmployeesMongo">Add to Mongo DB</a>
+<table>
+    <tr>
+        <th>EID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <!--<th>Update</th>-->
+    </tr>
+    <!--for loop over the data pulled from mongo DB-->
+    <% emps.forEach((employee)=>{ %>
+        <tr>
+            <td>
+                <%= employee._id %>
+            </td>
+            <td>
+                <%= employee.phone %>
+            </td>
+            <td>
+                <%= employee.email %>
+            </td>
+            <!--<td>
+                <a id=<%= employee._id %> href="/employeesMongo/addEmployeesMongo/<%= employee._id %>">Update</a>
+            </td>-->
+        </tr>
+    <% }) %>
+</table>
